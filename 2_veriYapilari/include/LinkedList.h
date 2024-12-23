@@ -2,35 +2,24 @@
 #define LINKEDLIST_H
 
 #include "ListeDugum.h"
+#include <string>
+#include <iostream>
 
 class LinkedList
 {
 private:
-  ListeDugum *bas;
-  ListeDugum *secili;
+  ListeDugum *head;
+  ListeDugum *selectedNode;
 
 public:
-  LinkedList()
-  {
-    bas = nullptr;
-    secili = nullptr;
-  }
+  LinkedList() : head(nullptr), selectedNode(nullptr) {}
+  ~LinkedList();
 
-  ~LinkedList()
-  {
-    while (bas != nullptr)
-    {
-      ListeDugum *silinecek = bas;
-      bas = bas->sonraki;
-      delete silinecek;
-    }
-  }
-
-  void ekle(BinarySearchTree *yeniAgac);
-  void ileri();
-  void geri();
-  void seciliAgacCiz();
-  void seciliAgacSil();
+  void addTree(const std::string &data);
+  void drawList() const;
+  void moveSelection(char direction);
+  void deleteSelected();
+  void rotateTree() const;
 };
 
 #endif

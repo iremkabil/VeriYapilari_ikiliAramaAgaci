@@ -6,19 +6,14 @@
 class ListeDugum
 {
 public:
-  BinarySearchTree *agac;
-  ListeDugum *sonraki;
+  BinarySearchTree *tree;
+  ListeDugum *next;
 
-  ListeDugum(BinarySearchTree *agac)
-  {
-    this->agac = agac;
-    this->sonraki = nullptr;
-  }
+  ListeDugum *head = nullptr;
+  ListeDugum *selectedNode = nullptr;
 
-  ~ListeDugum()
-  {
-    delete agac;
-  }
+  ListeDugum(BinarySearchTree *tree) : tree(tree), next(nullptr) {}
+  ~ListeDugum() { delete tree; }
 };
 
 #endif

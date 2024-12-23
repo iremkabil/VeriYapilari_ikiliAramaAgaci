@@ -1,28 +1,19 @@
 #ifndef BINARYSEARCHTREE_H
 #define BINARYSEARCHTREE_H
 
-#include "Dugum.h"
 #include <iostream>
-using namespace std;
 
 class BinarySearchTree
 {
-private:
-  Dugum *kok;
-
-  void ekle(Dugum *&dugum, char veri);
-  void inorder(Dugum *dugum);
-  int toplamDeger(Dugum *dugum);
-  void temizle(Dugum *&dugum);
-
 public:
-  BinarySearchTree();
-  ~BinarySearchTree();
+  char value;
+  BinarySearchTree *left;
+  BinarySearchTree *right;
 
-  void ekle(char veri);
-  void inorder();
-  int toplamDeger();
-  void temizle();
+  BinarySearchTree(char val) : value(val), left(nullptr), right(nullptr) {}
+
+  // Ağacın çizilmesi için bir fonksiyon
+  void draw(int depth) const;
 };
 
 #endif
